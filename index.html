@@ -182,6 +182,11 @@
 </head>
 <body>
 
+  <!-- 🔊 SONIDO AUTOMÁTICO -->
+  <audio autoplay>
+    <source src="https://www.soundjay.com/button/sounds/button-10.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="topbar">¡¡¡ATENCION!!! ESTA PAGINA ES 100% OFICIALMENTE INNECESARIA</div>
 
   <div class="wrap">
@@ -232,8 +237,15 @@
   </div>
 
   <script>
+    // contador random
     const numero = Math.floor(Math.random() * 899999) + 100000;
     document.getElementById("contador").textContent = numero;
+
+    // 🔊 sonido al hacer click (por si autoplay falla)
+    window.addEventListener("click", function () {
+      const audio = new Audio("https://www.soundjay.com/button/sounds/button-10.mp3");
+      audio.play();
+    }, { once: true });
   </script>
 
 </body>
