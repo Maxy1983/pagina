@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡¡¡ERROR DE NAVEGACIÓN!!!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #001f5c, #003b8e, #005eff);
+      font-family: Comic Sans MS, Arial, sans-serif;
+      color: yellow;
+      text-align: center;
+      overflow-x: hidden;
+      background-attachment: fixed;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 40px 40px, 70px 70px;
+      background-position: 0 0, 20px 20px;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .blink {
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .marquee {
+      background: red;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border-top: 4px solid yellow;
+      border-bottom: 4px solid yellow;
+      font-size: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 12s linear infinite;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    h1 {
+      font-size: 52px;
+      margin: 25px 0 15px;
+      text-shadow: 4px 4px 0 red, 8px 8px 0 black;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 28px;
+      color: #fff;
+      text-shadow: 2px 2px 0 #000;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.45);
+      border: 5px dashed yellow;
+      padding: 25px 20px;
+      margin: 25px auto;
+      box-shadow: 0 0 20px rgba(255,255,0,0.45);
+    }
+
+    .message {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fffb00;
+      text-shadow: 2px 2px 0 #000;
+      line-height: 1.4;
+    }
+
+    .small {
+      font-size: 22px;
+      color: #fff;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .gif-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+      font-size: 42px;
+    }
+
+    .gif {
+      background: #fff;
+      color: #000;
+      border: 3px solid red;
+      padding: 8px 14px;
+      box-shadow: 4px 4px 0 #000;
+    }
+
+    .fake-button {
+      display: inline-block;
+      margin-top: 25px;
+      background: lime;
+      color: black;
+      font-size: 28px;
+      font-weight: bold;
+      padding: 14px 30px;
+      border: 4px outset #ccc;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .fake-button:hover {
+      background: yellow;
+      transform: scale(1.03);
+    }
+
+    .counter {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #fff;
+      background: #000;
+      display: inline-block;
+      padding: 10px 18px;
+      border: 3px solid #0f0;
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    .under-construction {
+      margin: 18px auto;
+      font-size: 24px;
+      color: #ffcc00;
+      font-weight: bold;
+      background: #000;
+      display: inline-block;
+      padding: 10px 16px;
+      border: 3px dotted red;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .subtitle {
+        font-size: 22px;
+      }
+
+      .message {
+        font-size: 24px;
+      }
+
+      .small {
+        font-size: 18px;
+      }
+
+      .fake-button {
+        font-size: 22px;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="marquee">
+    <span>¡¡¡ATENCIÓN!!! USTED HA INGRESADO A UNA ZONA DE INTERNET ALTAMENTE INNECESARIA — FAVOR NO ENTRAR EN PÁNICO — ¡¡¡ATENCIÓN!!!</span>
+  </div>
+
+  <div class="container">
+    <div class="under-construction blink">🚧 PÁGINA EN CONSTRUCCIÓN DESDE 1998 🚧</div>
+
+    <h1 class="blink">¡¡¡ERROR DE NAVEGACIÓN!!!</h1>
+    <div class="subtitle">Bienvenido al internet de dudosa procedencia</div>
+
+    <div class="gif-row">
+      <div class="gif">✈️</div>
+      <div class="gif blink">💥</div>
+      <div class="gif">🛬</div>
+      <div class="gif blink">⚠️</div>
+    </div>
+
+    <div class="box">
+      <div class="message">
+        Esta no es la página que estabas buscando.
+      </div>
+
+      <div class="small">
+        Te desviaste de la ruta.<br>
+        Pero no te preocupes...<br><br>
+        <span style="font-size: 28px; color: #fffb00; font-weight: bold;">
+          a veces un aterrizaje inesperado<br>
+          termina siendo más entretenido.
+        </span>
+      </div>
+
+      <a href="#" class="fake-button" onclick="mensajeFalso(event)">
+        CONTINUAR BAJO SU PROPIO RIESGO
+      </a>
+    </div>
+
+    <div class="counter">
+      Visitante número: <span id="contador">000001</span>
+    </div>
+
+    <div class="footer">
+      Sitio oficialmente no afiliado a nada útil.<br>
+      Optimizado para monitores CRT, café recalentado y malas decisiones.
+    </div>
+  </div>
+
+  <script>
+    function mensajeFalso(e) {
+      e.preventDefault();
+      alert("Lo sentimos. El botón todavía no sirve, pero transmite autoridad.");
+    }
+
+    // contador falso para darle más mística noventosa
+    const numero = Math.floor(Math.random() * 899999) + 100000;
+    document.getElementById("contador").textContent = numero;
+  </script>
+</body>
+</html>
