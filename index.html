@@ -3,88 +3,246 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Error de navegación</title>
+  <title>¡¡¡BIENVENIDO A MI PAGINA WEB!!!</title>
   <style>
     body {
       margin: 0;
-      background: linear-gradient(45deg, #001f5c, #003b8e, #005eff);
-      font-family: Arial, sans-serif;
-      color: #fff;
+      font-family: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
+      background-color: #ffe44d;
+      color: #000;
       text-align: center;
-      padding: 40px 20px;
+      background-image:
+        radial-gradient(circle at 20px 20px, #fff59a 8px, transparent 8px),
+        radial-gradient(circle at 60px 60px, #ffd400 10px, transparent 10px);
+      background-size: 80px 80px;
     }
 
-    .container {
-      max-width: 700px;
-      margin: auto;
+    .topbar {
+      background: #ff2d2d;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px;
+      border-bottom: 4px solid #000;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.65; }
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 15px 60px;
     }
 
     h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: #ffffff;
+      font-size: 58px;
+      color: #0047ff;
+      margin: 20px 0 10px;
+      text-shadow: 3px 3px 0 #fff, 6px 6px 0 #000;
+      line-height: 1.05;
     }
 
-    .subtitle {
-      font-size: 22px;
-      color: #cfcfcf;
-      margin-bottom: 40px;
-    }
-
-    .box {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 30px;
-      border-radius: 10px;
-    }
-
-    .message {
+    .sub {
       font-size: 28px;
       font-weight: bold;
-      line-height: 1.4;
+      color: #d40000;
+      margin-bottom: 25px;
     }
 
-    .small {
+    .construction {
+      display: inline-block;
+      background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 12px,
+        #ffd400 12px,
+        #ffd400 24px
+      );
+      color: #fff;
+      padding: 12px 18px;
+      border: 4px solid #000;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 15px 0 25px;
+      box-shadow: 5px 5px 0 #000;
+    }
+
+    .main-box {
+      background: #8fd3ff;
+      border: 6px solid #000;
+      padding: 25px 18px;
+      box-shadow: 8px 8px 0 #000;
+      margin-bottom: 25px;
+    }
+
+    .big-text {
+      font-size: 34px;
+      font-weight: bold;
+      line-height: 1.35;
+      color: #000;
+    }
+
+    .small-text {
+      margin-top: 20px;
+      font-size: 22px;
+      line-height: 1.5;
+      color: #111;
+    }
+
+    .divider {
+      margin: 25px auto;
+      font-size: 28px;
+      letter-spacing: 8px;
+      color: #ff2d2d;
+      font-weight: bold;
+    }
+
+    .buttons {
       margin-top: 25px;
-      font-size: 20px;
-      color: #dcdcdc;
-      line-height: 1.6;
+    }
+
+    .fake-btn {
+      display: inline-block;
+      background: #39ff14;
+      color: #000;
+      text-decoration: none;
+      font-size: 26px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: 4px outset #d9d9d9;
+      margin: 8px;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 #000;
+    }
+
+    .fake-btn:active {
+      border-style: inset;
+    }
+
+    .counter-box {
+      display: inline-block;
+      margin-top: 28px;
+      background: #000;
+      color: #00ff00;
+      padding: 12px 16px;
+      border: 4px solid #999;
+      font-size: 24px;
+      font-family: "Courier New", monospace;
+    }
+
+    .guestbook {
+      margin-top: 30px;
+      background: #fff;
+      border: 5px dotted #000;
+      padding: 18px;
+      font-size: 22px;
+      box-shadow: 6px 6px 0 #000;
     }
 
     .footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #aaa;
+      margin-top: 35px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      background: #0047ff;
+      color: #fff;
+      padding: 8px 0;
+      border-top: 4px solid #000;
+      border-bottom: 4px solid #000;
+      margin: 20px 0;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: move 12s linear infinite;
+    }
+
+    @keyframes move {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 34px; }
-      .message { font-size: 22px; }
-      .small { font-size: 18px; }
+      h1 { font-size: 40px; }
+      .sub { font-size: 22px; }
+      .big-text { font-size: 26px; }
+      .small-text { font-size: 18px; }
+      .fake-btn { font-size: 20px; }
+      .guestbook { font-size: 18px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    
-    <h1>Ruta incorrecta.</h1>
-    <div class="subtitle">Recalculando…</div>
+  <div class="topbar">¡¡¡ATENCION!!! ESTA PAGINA ES 100% OFICIALMENTE INNECESARIA</div>
 
-    <div class="box">
-      <div class="message">
-        Esta no es la página que estabas buscando.
+  <div class="wrap">
+    <h1>¡¡¡BIENVENIDO A MI PAGINA!!!</h1>
+    <div class="sub">La mejor pagina de internet probablemente</div>
+
+    <div class="construction">🚧 PAGINA EN CONSTRUCCION DESDE HACE DEMASIADO TIEMPO 🚧</div>
+
+    <div class="marquee">
+      <span>Gracias por visitar este rincón dudoso de internet • Vuelva pronto • O no • Pero gracias igual •</span>
+    </div>
+
+    <div class="main-box">
+      <div class="big-text">
+        Esta no es la pagina que estabas buscando.
       </div>
 
-      <div class="small">
-        Te desviaste del rumbo.<br><br>
-        Pero a veces…<br>
-        <strong>terminar en otro lugar es lo mejor que puede pasar.</strong>
+      <div class="small-text">
+        Pero ya que llegaste hasta acá,<br>
+        podés fingir que todo esto fue intencional.
+        <br><br>
+        A veces perderse en internet<br>
+        es parte de la experiencia.
       </div>
+
+      <div class="divider">★ ★ ★</div>
+
+      <div class="buttons">
+        <a href="#" class="fake-btn" onclick="mensaje(event)">SEGUIR MIRANDO</a>
+        <a href="#" class="fake-btn" onclick="mensaje(event)">TOCAR COSAS</a>
+      </div>
+    </div>
+
+    <div class="counter-box">
+      VISITANTE N° <span id="contador">000001</span>
+    </div>
+
+    <div class="guestbook">
+      <strong>Libro de visitas:</strong><br><br>
+      “Muy confuso pero atrapante.”<br>
+      “No entendí nada.”<br>
+      “Volvería.”
     </div>
 
     <div class="footer">
-      Este dominio ha cambiado de dirección.
+      Hecho con entusiasmo cuestionable y decisiones gráficas discutibles.
     </div>
-
   </div>
+
+  <script>
+    function mensaje(e) {
+      e.preventDefault();
+      alert("Esta función todavía no hace nada, pero transmite confianza.");
+    }
+
+    const numero = Math.floor(Math.random() * 899999) + 100000;
+    document.getElementById("contador").textContent = numero;
+  </script>
 </body>
 </html>
