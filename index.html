@@ -108,18 +108,13 @@
       display: inline-block;
       background: #39ff14;
       color: #000;
-      text-decoration: none;
       font-size: 26px;
       font-weight: bold;
       padding: 12px 20px;
       border: 4px outset #d9d9d9;
       margin: 8px;
-      cursor: pointer;
       box-shadow: 3px 3px 0 #000;
-    }
-
-    .fake-btn:active {
-      border-style: inset;
+      cursor: default;
     }
 
     .counter-box {
@@ -186,6 +181,7 @@
   </style>
 </head>
 <body>
+
   <div class="topbar">¡¡¡ATENCION!!! ESTA PAGINA ES 100% OFICIALMENTE INNECESARIA</div>
 
   <div class="wrap">
@@ -214,8 +210,8 @@
       <div class="divider">★ ★ ★</div>
 
       <div class="buttons">
-        <a href="#" class="fake-btn" onclick="mensaje(event)">SEGUIR MIRANDO</a>
-        <a href="#" class="fake-btn" onclick="mensaje(event)">TOCAR COSAS</a>
+        <div class="fake-btn">SEGUIR MIRANDO</div>
+        <div class="fake-btn">TOCAR COSAS</div>
       </div>
     </div>
 
@@ -236,13 +232,9 @@
   </div>
 
   <script>
-    function mensaje(e) {
-      e.preventDefault();
-      alert("Esta función todavía no hace nada, pero transmite confianza.");
-    }
-
     const numero = Math.floor(Math.random() * 899999) + 100000;
     document.getElementById("contador").textContent = numero;
   </script>
+
 </body>
 </html>
