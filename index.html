@@ -4,249 +4,98 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>¡¡¡BIENVENIDO A INTERNET!!!</title>
+
   <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
+      font-family: "Comic Sans MS", Arial, sans-serif;
       background-color: #ffe44d;
-      color: #000;
       text-align: center;
-      background-image:
-        radial-gradient(circle at 20px 20px, #fff59a 8px, transparent 8px),
-        radial-gradient(circle at 60px 60px, #ffd400 10px, transparent 10px);
-      background-size: 80px 80px;
     }
 
     .topbar {
-      background: #ff2d2d;
-      color: #fff;
+      background: red;
+      color: white;
       font-weight: bold;
-      font-size: 18px;
       padding: 10px;
-      border-bottom: 4px solid #000;
-      animation: blink 1s step-start infinite;
+      animation: blink 1s infinite;
     }
 
     @keyframes blink {
-      50% { opacity: 0.65; }
-    }
-
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px 15px 60px;
+      50% { opacity: 0.5; }
     }
 
     h1 {
-      font-size: 58px;
-      color: #0047ff;
-      margin: 20px 0 10px;
-      text-shadow: 3px 3px 0 #fff, 6px 6px 0 #000;
-      line-height: 1.05;
+      font-size: 60px;
+      color: blue;
+      text-shadow: 4px 4px white, 8px 8px black;
     }
 
-    .sub {
-      font-size: 28px;
-      font-weight: bold;
-      color: #d40000;
-      margin-bottom: 25px;
+    .box {
+      background: lightblue;
+      border: 6px solid black;
+      margin: 20px;
+      padding: 20px;
     }
 
-    .construction {
+    .btn {
       display: inline-block;
-      background: repeating-linear-gradient(
-        45deg,
-        #000,
-        #000 12px,
-        #ffd400 12px,
-        #ffd400 24px
-      );
-      color: #fff;
-      padding: 12px 18px;
-      border: 4px solid #000;
-      font-size: 22px;
+      background: lime;
+      padding: 10px 20px;
+      margin: 10px;
+      border: 4px outset gray;
       font-weight: bold;
-      margin: 15px 0 25px;
-      box-shadow: 5px 5px 0 #000;
     }
 
-    .main-box {
-      background: #8fd3ff;
-      border: 6px solid #000;
-      padding: 25px 18px;
-      box-shadow: 8px 8px 0 #000;
-      margin-bottom: 25px;
-    }
-
-    .big-text {
-      font-size: 34px;
-      font-weight: bold;
-      line-height: 1.35;
-      color: #000;
-    }
-
-    .small-text {
+    .counter {
+      background: black;
+      color: lime;
+      display: inline-block;
+      padding: 10px;
       margin-top: 20px;
-      font-size: 22px;
-      line-height: 1.5;
-      color: #111;
-    }
-
-    .divider {
-      margin: 25px auto;
-      font-size: 28px;
-      letter-spacing: 8px;
-      color: #ff2d2d;
-      font-weight: bold;
-    }
-
-    .buttons {
-      margin-top: 25px;
-    }
-
-    .fake-btn {
-      display: inline-block;
-      background: #39ff14;
-      color: #000;
-      font-size: 26px;
-      font-weight: bold;
-      padding: 12px 20px;
-      border: 4px outset #d9d9d9;
-      margin: 8px;
-      box-shadow: 3px 3px 0 #000;
-      cursor: default;
-    }
-
-    .counter-box {
-      display: inline-block;
-      margin-top: 28px;
-      background: #000;
-      color: #00ff00;
-      padding: 12px 16px;
-      border: 4px solid #999;
-      font-size: 24px;
-      font-family: "Courier New", monospace;
-    }
-
-    .guestbook {
-      margin-top: 30px;
-      background: #fff;
-      border: 5px dotted #000;
-      padding: 18px;
-      font-size: 22px;
-      box-shadow: 6px 6px 0 #000;
-    }
-
-    .footer {
-      margin-top: 35px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #222;
-    }
-
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      background: #0047ff;
-      color: #fff;
-      padding: 8px 0;
-      border-top: 4px solid #000;
-      border-bottom: 4px solid #000;
-      margin: 20px 0;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: move 12s linear infinite;
-    }
-
-    @keyframes move {
-      from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 40px; }
-      .sub { font-size: 22px; }
-      .big-text { font-size: 26px; }
-      .small-text { font-size: 18px; }
-      .fake-btn { font-size: 20px; }
-      .guestbook { font-size: 18px; }
+      font-family: monospace;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- 🔊 SONIDO AUTOMÁTICO -->
-  <audio autoplay>
-    <source src="https://www.soundjay.com/button/sounds/button-10.mp3" type="audio/mpeg">
-  </audio>
+<audio autoplay>
+  <source src="https://www.soundjay.com/button/beep-07.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="topbar">¡¡¡ATENCION!!! ESTA PAGINA ES 100% OFICIALMENTE INNECESARIA</div>
+<div class="topbar">¡¡¡ATENCION!!! ESTA PAGINA ES INNECESARIA!!!</div>
 
-  <div class="wrap">
-    <h1>¡¡¡BIENVENIDO A INTERNET!!!</h1>
-    <div class="sub">La mejor pagina de internet probablemente</div>
+<h1>¡¡¡BIENVENIDO A INTERNET!!!</h1>
 
-    <div class="construction">🚧 PAGINA EN CONSTRUCCION DESDE HACE DEMASIADO TIEMPO 🚧</div>
+<div class="box">
+  <h2>Esta no es la pagina que estabas buscando.</h2>
 
-    <div class="marquee">
-      <span>Gracias por visitar este rincón dudoso de internet • Vuelva pronto • O no • Pero gracias igual •</span>
-    </div>
+  <p>
+    Pero ya que llegaste...<br>
+    fingí que todo esto fue intencional.
+  </p>
 
-    <div class="main-box">
-      <div class="big-text">
-        Esta no es la pagina que estabas buscando.
-      </div>
+  <div class="btn">SEGUIR MIRANDO</div>
+  <div class="btn">TOCAR COSAS</div>
+</div>
 
-      <div class="small-text">
-        Pero ya que llegaste hasta acá,<br>
-        podés fingir que todo esto fue intencional.
-        <br><br>
-        A veces perderse en internet<br>
-        es parte de la experiencia.
-      </div>
+<div class="counter">
+  VISITANTE N° <span id="contador">000001</span>
+</div>
 
-      <div class="divider">★ ★ ★</div>
+<script>
+  document.getElementById("contador").textContent =
+    Math.floor(Math.random() * 900000) + 100000;
 
-      <div class="buttons">
-        <div class="fake-btn">SEGUIR MIRANDO</div>
-        <div class="fake-btn">TOCAR COSAS</div>
-      </div>
-    </div>
+  window.onload = function() {
+    alert("ATENCION: Usted ha ingresado a internet.");
+  };
 
-    <div class="counter-box">
-      VISITANTE N° <span id="contador">000001</span>
-    </div>
-
-    <div class="guestbook">
-      <strong>Libro de visitas:</strong><br><br>
-      “Muy confuso pero atrapante.”<br>
-      “No entendí nada.”<br>
-      “Volvería.”
-    </div>
-
-    <div class="footer">
-      Hecho con entusiasmo cuestionable y decisiones gráficas discutibles.
-    </div>
-  </div>
-
-  <script>
-    // contador random
-    const numero = Math.floor(Math.random() * 899999) + 100000;
-    document.getElementById("contador").textContent = numero;
-
-    // 🔊 sonido al hacer click (por si autoplay falla)
-    window.addEventListener("click", function () {
-      const audio = new Audio("https://www.soundjay.com/button/sounds/button-10.mp3");
-      audio.play();
-    }, { once: true });
-  </script>
+  window.addEventListener("click", function () {
+    new Audio("https://www.soundjay.com/button/beep-07.mp3").play();
+  }, { once: true });
+</script>
 
 </body>
 </html>
