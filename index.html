@@ -1,101 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¡¡¡BIENVENIDO A INTERNET!!!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dominio en Venta</title>
 
   <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", Arial, sans-serif;
-      background-color: #ffe44d;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #000, #1a1a1a);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
     }
 
-    .topbar {
-      background: red;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      animation: blink 1s infinite;
+    .container {
+      border: 4px solid #00ffcc;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #00ffcc;
+      animation: glow 1.5s infinite alternate;
     }
 
-    @keyframes blink {
-      50% { opacity: 0.5; }
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #00ffcc; }
+      to { box-shadow: 0 0 40px #00ffcc; }
     }
 
     h1 {
       font-size: 60px;
-      color: blue;
-      text-shadow: 4px 4px white, 8px 8px black;
+      margin: 0;
+      color: #00ffcc;
     }
 
-    .box {
-      background: lightblue;
-      border: 6px solid black;
-      margin: 20px;
-      padding: 20px;
+    h2 {
+      margin-top: 10px;
+      font-weight: normal;
+      color: #ccc;
     }
 
     .btn {
       display: inline-block;
-      background: lime;
-      padding: 10px 20px;
-      margin: 10px;
-      border: 4px outset gray;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: #00ffcc;
+      color: black;
       font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
-    .counter {
-      background: black;
-      color: lime;
-      display: inline-block;
-      padding: 10px;
+    .btn:hover {
+      background: white;
+    }
+
+    .footer {
       margin-top: 20px;
-      font-family: monospace;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
 
-<audio autoplay>
-  <source src="https://www.soundjay.com/button/beep-07.mp3" type="audio/mpeg">
-</audio>
+  <div class="container">
+    <h1>DOMINIO A LA VENTA</h1>
+    <h2>Este dominio está disponible</h2>
 
-<div class="topbar">¡¡¡ATENCION!!! ESTA PAGINA ES INNECESARIA!!!</div>
+    <a href="https://wa.me/549XXXXXXXXXX" class="btn">
+      CONTACTAR POR WHATSAPP
+    </a>
 
-<h1>¡¡¡BIENVENIDO A INTERNET!!!</h1>
-
-<div class="box">
-  <h2>Esta no es la pagina que estabas buscando.</h2>
-
-  <p>
-    Pero ya que llegaste...<br>
-    fingí que todo esto fue intencional.
-  </p>
-
-  <div class="btn">SEGUIR MIRANDO</div>
-  <div class="btn">TOCAR COSAS</div>
-</div>
-
-<div class="counter">
-  VISITANTE N° <span id="contador">000001</span>
-</div>
-
-<script>
-  document.getElementById("contador").textContent =
-    Math.floor(Math.random() * 900000) + 100000;
-
-  window.onload = function() {
-    alert("ATENCION: Usted ha ingresado a internet.");
-  };
-
-  window.addEventListener("click", function () {
-    new Audio("https://www.soundjay.com/button/beep-07.mp3").play();
-  }, { once: true });
-</script>
+    <div class="footer">
+      Consultas serias únicamente
+    </div>
+  </div>
 
 </body>
 </html>
