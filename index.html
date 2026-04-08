@@ -9,81 +9,115 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f1c7;
+      font-family: "Comic Sans MS", Arial, Helvetica, sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #fff9c4,
+        #fff9c4 30px,
+        #fff59d 30px,
+        #fff59d 60px
+      );
       color: #1f1f1f;
+      cursor: crosshair;
     }
 
     .topbar {
-      background: #c1121f;
+      background: linear-gradient(90deg, #ff0000, #ff6f00, #ff0000);
       color: #fff;
       text-align: center;
       font-weight: bold;
       padding: 10px 15px;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      animation: blink 1.2s infinite;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: blink 0.9s infinite;
+      border-bottom: 4px solid #000;
     }
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+      50% { opacity: 0.55; }
     }
 
     .hero {
-      background: linear-gradient(180deg, #4caf50 0%, #2e7d32 100%);
+      background: linear-gradient(180deg, #00a000 0%, #007a00 45%, #005f00 100%);
       color: white;
       text-align: center;
-      padding: 40px 20px 30px;
-      border-bottom: 8px solid #d32f2f;
+      padding: 42px 20px 34px;
+      border-top: 6px solid #ffffff;
+      border-bottom: 10px solid #d50000;
+      position: relative;
+      overflow: hidden;
     }
+
+    .hero::before,
+    .hero::after {
+      content: "★ OFERTÓN ★ OFERTÓN ★ OFERTÓN ★";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      color: #ffeb3b;
+      font-weight: bold;
+      text-shadow: 2px 2px 0 #000;
+      opacity: 0.35;
+      white-space: nowrap;
+      font-size: 20px;
+    }
+
+    .hero::before { top: 8px; }
+    .hero::after { bottom: 8px; }
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(34px, 7vw, 70px);
-      line-height: 1;
+      font-size: clamp(38px, 8vw, 82px);
+      line-height: 0.95;
       text-transform: uppercase;
-      text-shadow: 3px 3px 0 #000;
+      text-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0,0,0,0.25);
+      transform: rotate(-1deg);
     }
 
     .hero h2 {
-      margin: 12px 0 0;
-      font-size: clamp(18px, 3vw, 28px);
+      margin: 14px 0 0;
+      font-size: clamp(20px, 3.5vw, 34px);
       font-weight: bold;
-      color: #ffe082;
-      text-shadow: 2px 2px 0 #000;
+      color: #ffeb3b;
+      text-shadow: 3px 3px 0 #000;
+      transform: rotate(1deg);
     }
 
     .subhero {
       text-align: center;
-      background: #fff8e1;
+      background: #ffffff;
       padding: 18px 20px;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
-      border-bottom: 4px dashed #2e7d32;
+      border-top: 4px dashed #000;
+      border-bottom: 4px dashed #000;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
       padding: 25px 18px 50px;
     }
 
     .marquee-box {
-      background: #fff;
-      border: 4px solid #d32f2f;
+      background: #000;
+      color: #00ff66;
+      border: 5px solid #ffeb3b;
       padding: 14px;
       margin-bottom: 24px;
       overflow: hidden;
       white-space: nowrap;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 19px;
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
     }
 
     .marquee-track {
       display: inline-block;
       padding-left: 100%;
-      animation: scroll-left 14s linear infinite;
+      animation: scroll-left 12s linear infinite;
     }
 
     @keyframes scroll-left {
@@ -99,22 +133,39 @@
 
     .card {
       background: #fff;
-      border: 4px solid #2e7d32;
-      border-radius: 12px;
+      border: 5px solid #000;
+      border-radius: 0;
       padding: 18px;
-      box-shadow: 6px 6px 0 rgba(0,0,0,0.15);
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .card::before {
+      content: "NUEVO";
+      position: absolute;
+      top: -12px;
+      right: 12px;
+      background: #ff0000;
+      color: #fff;
+      padding: 4px 10px;
+      border: 3px solid #000;
+      font-size: 12px;
+      font-weight: bold;
+      transform: rotate(6deg);
     }
 
     .card h3 {
       margin-top: 0;
-      font-size: 26px;
+      font-size: 30px;
       color: #c1121f;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0 #00000022;
     }
 
     .card p,
     .card li {
-      font-size: 18px;
-      line-height: 1.5;
+      font-size: 19px;
+      line-height: 1.55;
     }
 
     .prices {
@@ -125,23 +176,25 @@
     }
 
     .price-item {
-      background: #fffde7;
-      border: 3px dashed #d32f2f;
+      background: #ffeb3b;
+      border: 4px dashed #d50000;
       padding: 14px;
-      border-radius: 10px;
+      border-radius: 0;
       text-align: center;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 22px;
+      box-shadow: inset 0 0 0 2px #000;
     }
 
     .warning {
       background: #212121;
       color: #fff;
-      border: 4px solid #ffeb3b;
+      border: 5px solid #ffeb3b;
     }
 
     .warning h3 {
       color: #ffeb3b;
+      text-shadow: 2px 2px 0 #000;
     }
 
     .testimonials {
@@ -154,32 +207,40 @@
     blockquote {
       margin: 0;
       background: #f1f8e9;
-      border-left: 6px solid #4caf50;
+      border-left: 8px solid #4caf50;
       padding: 14px;
       font-style: italic;
-      font-size: 18px;
+      font-size: 19px;
     }
 
     .cta {
       margin-top: 28px;
       text-align: center;
-      background: #d32f2f;
+      background: linear-gradient(180deg, #ff0000 0%, #c10000 100%);
       color: white;
-      border: 5px solid #1b1b1b;
+      border: 6px solid #111;
       padding: 26px 18px;
-      border-radius: 14px;
-      box-shadow: 7px 7px 0 rgba(0,0,0,0.2);
+      border-radius: 0;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.015); }
     }
 
     .cta h3 {
       margin: 0 0 10px;
-      font-size: 34px;
-      text-shadow: 2px 2px 0 #000;
+      font-size: 38px;
+      text-shadow: 3px 3px 0 #000;
+      text-transform: uppercase;
     }
 
     .cta p {
       margin: 0 0 18px;
-      font-size: 20px;
+      font-size: 21px;
+      font-weight: bold;
     }
 
     .btn-row {
@@ -194,25 +255,27 @@
       text-decoration: none;
       color: #111;
       background: #ffeb3b;
-      border: 3px solid #111;
+      border: 4px solid #111;
       padding: 14px 20px;
-      font-size: 18px;
+      font-size: 19px;
       font-weight: bold;
-      border-radius: 10px;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+      border-radius: 0;
+      box-shadow: 5px 5px 0 rgba(0,0,0,0.25);
       transition: transform 0.15s ease;
+      text-transform: uppercase;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-2px) rotate(-1deg);
     }
 
     .footer {
       margin-top: 30px;
       text-align: center;
-      font-size: 16px;
-      color: #444;
+      font-size: 17px;
+      color: #222;
       padding-bottom: 30px;
+      font-weight: bold;
     }
 
     .emoji {
@@ -230,7 +293,7 @@
       }
 
       .card h3 {
-        font-size: 22px;
+        font-size: 24px;
       }
 
       .card p,
@@ -238,21 +301,21 @@
       .price-item,
       .cta p,
       .btn {
-        font-size: 16px;
+        font-size: 17px;
       }
 
       .cta h3 {
-        font-size: 28px;
+        font-size: 29px;
       }
 
       .subhero {
-        font-size: 17px;
+        font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">🥕 OFERTA IMPERDIBLE · ATENCIÓN PERSONALIZADA · NO FIAMOS · NO PREGUNTAR 🥬</div>
+  <div class="topbar">🥕 OFERTA IMPERDIBLE · ATENCIÓN PERSONALIZADA · NO FIAMOS · NO PREGUNTAR · CALIDAD QUE IMPACTA 🥬</div>
 
   <section class="hero">
     <h1>Verduras y Algo Más</h1>
@@ -260,7 +323,7 @@
   </section>
 
   <div class="subhero">
-    Frescura de barrio, precios honestos y asuntos que no corresponde detallar por este medio.
+    Frescura de barrio, precios imbatibles y cuestiones complementarias que preferimos no desarrollar en este sitio web.
   </div>
 
   <div class="container">
@@ -273,11 +336,10 @@
         <h3>¿Quiénes somos?</h3>
         <p>
           Somos una verdulería de cercanía comprometida con la calidad, la atención al cliente
-          y la mercadería fresca de todos los días. Atendemos con respeto, buena onda y la
-          mínima cantidad posible de preguntas.
+          y la mercadería fresca de todos los días. Atendemos con respeto, buena onda y la mínima cantidad posible de preguntas. Cuanto menos se consulta, mejor fluye todo para ambas partes.
         </p>
         <p>
-          Acá venís, elegís, pagás y seguís tu camino. Como tiene que ser.
+          Acá venís, elegís, pagás y seguís tu camino. Simple, directo y sin escenas innecesarias.
         </p>
       </div>
 
@@ -287,8 +349,8 @@
           <li>Armado de bolsón surtido</li>
           <li>Venta minorista y por cantidad</li>
           <li>Selección especial de frutas</li>
-          <li>Atención cordial, salvo lunes</li>
-          <li>Consultas breves y concretas</li>
+          <li>Atención cordial, salvo lunes y días complejos</li>
+          <li>Consultas breves, concretas y preferentemente pocas</li>
         </ul>
       </div>
 
@@ -300,7 +362,7 @@
           <div class="price-item">Banana<br>$1.600/kg</div>
           <div class="price-item">Cebolla<br>$780/kg</div>
           <div class="price-item">Lechuga<br>$950 c/u</div>
-          <div class="price-item">Palta<br>Consultar</div>
+          <div class="price-item">Palta<br>Consultar en voz baja</div>
         </div>
       </div>
 
@@ -310,7 +372,7 @@
           <li>No fiamos. Sin excepción.</li>
           <li>No se separa mercadería.</li>
           <li>No aceptamos debates sobre maduración de banana.</li>
-          <li>No preguntar por “algo más”.</li>
+          <li>No preguntar por “algo más”, ni por “qué sería algo más”.</li>
           <li>Si hay cola, decidir rápido.</li>
         </ul>
       </div>
@@ -318,32 +380,32 @@
       <div class="card">
         <h3>Lo que dicen nuestros clientes</h3>
         <div class="testimonials">
-          <blockquote>“Vine por cebolla. Me fui con respuestas, pero no a mis preguntas.”</blockquote>
-          <blockquote>“Muy buena la papa. Ambiente extraño, pero recomendable.”</blockquote>
-          <blockquote>“No pregunté nada y me atendieron bárbaro.”</blockquote>
+          <blockquote>“Vine por cebolla. Me fui contento, pero con una sensación difícil de explicar.”</blockquote>
+          <blockquote>“Muy buena la papa. Lugar serio. Nadie habla de más.”</blockquote>
+          <blockquote>“Fui, compré, no pregunté nada y todo salió perfecto.”</blockquote>
         </div>
       </div>
 
       <div class="card">
         <h3>Horario de atención</h3>
         <p><strong>Lunes a sábado:</strong> 08:30 a 20:00</p>
-        <p><strong>Domingos:</strong> abierto si pinta</p>
+        <p><strong>Domingos:</strong> abierto si se alinean las condiciones</p>
         <p><strong>Feriados:</strong> depende del ánimo general</p>
-        <p><strong>Ubicación:</strong> Morón, por ahí nomás</p>
+        <p><strong>Ubicación:</strong> Morón, zona conocida por quienes ya saben</p>
       </div>
     </div>
 
     <div class="cta">
-      <h3>CONSULTAR POR BOLSÓN SORPRESA</h3>
-      <p>Ideal para quienes confían y no hacen preguntas innecesarias.</p>
+      <h3>CONSULTAR POR EL BOLSÓN SORPRESA XL</h3>
+      <p>Ideal para quienes confían, valoran la discreción y entienden cómo funciona un comercio serio.</p>
       <div class="btn-row">
-        <a href="#" class="btn">Ver precios mayoristas</a>
-        <a href="#" class="btn">Hablar con el encargado</a>
+        <a href="#" class="btn">Ver precios mayoristas secretos</a>
+        <a href="#" class="btn">Hablar con el encargado general</a>
       </div>
     </div>
 
     <div class="footer">
-      © 2026 Verduras y Algo Más (No Preguntar) · Sitio barrial de confianza relativa.
+      © 2026 Verduras y Algo Más (No Preguntar) · Sitio barrial de confianza razonable y explicaciones limitadas.
     </div>
   </div>
 </body>
