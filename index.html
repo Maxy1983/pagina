@@ -1,412 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verduras y Algo Más (No Preguntar)</title>
-  <style>
-    * { box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SEO -->
+  <title>Verduras y Algo Más (No Preguntar) – Morón</title>
+
+  <meta name="description" content="Verdulería de barrio en Morón con frutas y verduras frescas. Atención directa, precios razonables y algunas cosas que preferimos no detallar. No preguntar.">
+
+  <meta name="keywords" content="fly moron, verduleria moron, verduras moron, frutas moron">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://flymoron.com.ar/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Verduras y Algo Más (No Preguntar)">
+  <meta property="og:description" content="Frutas, verduras y algunas cosas que preferimos no detallar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flymoron.com.ar/">
+
+  <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", Arial, Helvetica, sans-serif;
-      background: repeating-linear-gradient(
-        45deg,
-        #fff9c4,
-        #fff9c4 30px,
-        #fff59d 30px,
-        #fff59d 60px
-      );
-      color: #1f1f1f;
-      cursor: crosshair;
+      font-family: "Comic Sans MS", Arial;
+      background: #fff9c4;
+      text-align: center;
     }
 
     .topbar {
-      background: linear-gradient(90deg, #ff0000, #ff6f00, #ff0000);
-      color: #fff;
-      text-align: center;
+      background: red;
+      color: white;
       font-weight: bold;
-      padding: 10px 15px;
-      font-size: 16px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      animation: blink 0.9s infinite;
-      border-bottom: 4px solid #000;
+      padding: 10px;
+      animation: blink 1s infinite;
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.55; }
+      50% { opacity: 0.5; }
     }
 
-    .hero {
-      background: linear-gradient(180deg, #00a000 0%, #007a00 45%, #005f00 100%);
-      color: white;
-      text-align: center;
-      padding: 42px 20px 34px;
-      border-top: 6px solid #ffffff;
-      border-bottom: 10px solid #d50000;
-      position: relative;
-      overflow: hidden;
+    h1 {
+      font-size: 60px;
+      color: green;
+      text-shadow: 4px 4px yellow;
     }
 
-    .hero::before,
-    .hero::after {
-      content: "★ OFERTÓN ★ OFERTÓN ★ OFERTÓN ★";
-      position: absolute;
-      width: 100%;
-      left: 0;
-      color: #ffeb3b;
+    h2 {
+      font-size: 30px;
+      color: darkred;
+    }
+
+    .box {
+      background: white;
+      border: 5px dashed green;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    .oferta {
+      background: yellow;
+      border: 3px solid red;
+      margin: 10px;
+      padding: 10px;
       font-weight: bold;
-      text-shadow: 2px 2px 0 #000;
-      opacity: 0.35;
-      white-space: nowrap;
       font-size: 20px;
     }
 
-    .hero::before { top: 8px; }
-    .hero::after { bottom: 8px; }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(38px, 8vw, 82px);
-      line-height: 0.95;
-      text-transform: uppercase;
-      text-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0,0,0,0.25);
-      transform: rotate(-1deg);
-    }
-
-    .hero h2 {
-      margin: 14px 0 0;
-      font-size: clamp(20px, 3.5vw, 34px);
-      font-weight: bold;
-      color: #ffeb3b;
-      text-shadow: 3px 3px 0 #000;
-      transform: rotate(1deg);
-    }
-
-    .subhero {
-      text-align: center;
-      background: #ffffff;
-      padding: 18px 20px;
-      font-size: 22px;
-      font-weight: bold;
-      border-top: 4px dashed #000;
-      border-bottom: 4px dashed #000;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 25px 18px 50px;
-    }
-
-    .marquee-box {
-      background: #000;
-      color: #00ff66;
-      border: 5px solid #ffeb3b;
-      padding: 14px;
-      margin-bottom: 24px;
-      overflow: hidden;
-      white-space: nowrap;
-      font-weight: bold;
-      font-size: 19px;
-      box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
-    }
-
-    .marquee-track {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 12s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: #fff;
-      border: 5px solid #000;
-      border-radius: 0;
-      padding: 18px;
-      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
-      position: relative;
-    }
-
-    .card::before {
-      content: "NUEVO";
-      position: absolute;
-      top: -12px;
-      right: 12px;
-      background: #ff0000;
-      color: #fff;
-      padding: 4px 10px;
-      border: 3px solid #000;
-      font-size: 12px;
-      font-weight: bold;
-      transform: rotate(6deg);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 30px;
-      color: #c1121f;
-      text-transform: uppercase;
-      text-shadow: 1px 1px 0 #00000022;
-    }
-
-    .card p,
-    .card li {
-      font-size: 19px;
-      line-height: 1.55;
-    }
-
-    .prices {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .price-item {
-      background: #ffeb3b;
-      border: 4px dashed #d50000;
-      padding: 14px;
-      border-radius: 0;
-      text-align: center;
-      font-weight: bold;
-      font-size: 22px;
-      box-shadow: inset 0 0 0 2px #000;
-    }
-
-    .warning {
-      background: #212121;
-      color: #fff;
-      border: 5px solid #ffeb3b;
-    }
-
-    .warning h3 {
-      color: #ffeb3b;
-      text-shadow: 2px 2px 0 #000;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    blockquote {
-      margin: 0;
-      background: #f1f8e9;
-      border-left: 8px solid #4caf50;
-      padding: 14px;
-      font-style: italic;
-      font-size: 19px;
-    }
-
     .cta {
-      margin-top: 28px;
-      text-align: center;
-      background: linear-gradient(180deg, #ff0000 0%, #c10000 100%);
+      background: red;
       color: white;
-      border: 6px solid #111;
-      padding: 26px 18px;
-      border-radius: 0;
-      box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
-      animation: pulse 1.2s infinite;
+      padding: 20px;
+      margin: 20px;
+      font-size: 25px;
+      border: 4px solid black;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.015); }
-    }
-
-    .cta h3 {
-      margin: 0 0 10px;
-      font-size: 38px;
-      text-shadow: 3px 3px 0 #000;
-      text-transform: uppercase;
-    }
-
-    .cta p {
-      margin: 0 0 18px;
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      color: #111;
-      background: #ffeb3b;
-      border: 4px solid #111;
-      padding: 14px 20px;
-      font-size: 19px;
-      font-weight: bold;
-      border-radius: 0;
-      box-shadow: 5px 5px 0 rgba(0,0,0,0.25);
-      transition: transform 0.15s ease;
-      text-transform: uppercase;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px) rotate(-1deg);
-    }
-
-    .footer {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 17px;
-      color: #222;
-      padding-bottom: 30px;
-      font-weight: bold;
-    }
-
-    .emoji {
-      font-size: 1.2em;
-    }
-
-    @media (max-width: 780px) {
-      .grid,
-      .prices {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 30px 15px 24px;
-      }
-
-      .card h3 {
-        font-size: 24px;
-      }
-
-      .card p,
-      .card li,
-      .price-item,
-      .cta p,
-      .btn {
-        font-size: 17px;
-      }
-
-      .cta h3 {
-        font-size: 29px;
-      }
-
-      .subhero {
-        font-size: 18px;
-      }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+      background: yellow;
+      border: 3px solid black;
+      cursor: pointer;
     }
   </style>
 </head>
+
 <body>
-  <div class="topbar">🥕 OFERTA IMPERDIBLE · ATENCIÓN PERSONALIZADA · NO FIAMOS · NO PREGUNTAR · CALIDAD QUE IMPACTA 🥬</div>
 
-  <section class="hero">
-    <h1>Verduras y Algo Más</h1>
-    <h2>(No Preguntar)</h2>
-  </section>
+<div class="topbar">
+🥕 OFERTA IMPERDIBLE – NO FIAMOS – NO PREGUNTAR 🥬
+</div>
 
-  <div class="subhero">
-    Frescura de barrio, precios imbatibles y cuestiones complementarias que preferimos no desarrollar en este sitio web.
-  </div>
+<h1>VERDURAS Y ALGO MÁS</h1>
+<h2>(NO PREGUNTAR)</h2>
 
-  <div class="container">
-    <div class="marquee-box">
-      <div class="marquee-track">🍅 Tomate seleccionado · 🥔 Papa firme · 🍌 Banana en su punto · 🥑 Palta: consultar en voz baja · 🧅 Cebolla sin vueltas · 🥬 Lechuga con carácter</div>
-    </div>
+<div class="box">
+<p>
+Verdulería de barrio en Morón.<br>
+Frutas y verduras frescas todos los días.<br>
+Atención directa, sin vueltas y sin preguntas innecesarias.
+</p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>¿Quiénes somos?</h3>
-        <p>
-          Somos una verdulería de cercanía comprometida con la calidad, la atención al cliente
-          y la mercadería fresca de todos los días. Atendemos con respeto, buena onda y la mínima cantidad posible de preguntas. Cuanto menos se consulta, mejor fluye todo para ambas partes.
-        </p>
-        <p>
-          Acá venís, elegís, pagás y seguís tu camino. Simple, directo y sin escenas innecesarias.
-        </p>
-      </div>
+<p>
+Tomate, papa, banana…<br>
+y algo más.<br>
+No preguntar.
+</p>
+</div>
 
-      <div class="card">
-        <h3>Servicios</h3>
-        <ul>
-          <li>Armado de bolsón surtido</li>
-          <li>Venta minorista y por cantidad</li>
-          <li>Selección especial de frutas</li>
-          <li>Atención cordial, salvo lunes y días complejos</li>
-          <li>Consultas breves, concretas y preferentemente pocas</li>
-        </ul>
-      </div>
+<div class="box">
+<h2>OFERTAS DEL DÍA 🔥</h2>
 
-      <div class="card">
-        <h3>Ofertas del día <span class="emoji">🔥</span></h3>
-        <div class="prices">
-          <div class="price-item">Papa<br>$890/kg</div>
-          <div class="price-item">Tomate<br>$1.250/kg</div>
-          <div class="price-item">Banana<br>$1.600/kg</div>
-          <div class="price-item">Cebolla<br>$780/kg</div>
-          <div class="price-item">Lechuga<br>$950 c/u</div>
-          <div class="price-item">Palta<br>Consultar en voz baja</div>
-        </div>
-      </div>
+<div class="oferta">Papa $890/kg</div>
+<div class="oferta">Tomate $1250/kg</div>
+<div class="oferta">Banana $1600/kg</div>
+<div class="oferta">Palta: consultar en voz baja</div>
 
-      <div class="card warning">
-        <h3>Información importante</h3>
-        <ul>
-          <li>No fiamos. Sin excepción.</li>
-          <li>No se separa mercadería.</li>
-          <li>No aceptamos debates sobre maduración de banana.</li>
-          <li>No preguntar por “algo más”, ni por “qué sería algo más”.</li>
-          <li>Si hay cola, decidir rápido.</li>
-        </ul>
-      </div>
+</div>
 
-      <div class="card">
-        <h3>Lo que dicen nuestros clientes</h3>
-        <div class="testimonials">
-          <blockquote>“Vine por cebolla. Me fui contento, pero con una sensación difícil de explicar.”</blockquote>
-          <blockquote>“Muy buena la papa. Lugar serio. Nadie habla de más.”</blockquote>
-          <blockquote>“Fui, compré, no pregunté nada y todo salió perfecto.”</blockquote>
-        </div>
-      </div>
+<div class="box">
+<h2>INFORMACIÓN IMPORTANTE</h2>
 
-      <div class="card">
-        <h3>Horario de atención</h3>
-        <p><strong>Lunes a sábado:</strong> 08:30 a 20:00</p>
-        <p><strong>Domingos:</strong> abierto si se alinean las condiciones</p>
-        <p><strong>Feriados:</strong> depende del ánimo general</p>
-        <p><strong>Ubicación:</strong> Morón, zona conocida por quienes ya saben</p>
-      </div>
-    </div>
+<p>⚠️ No fiamos</p>
+<p>⚠️ No insistir</p>
+<p>⚠️ No preguntar por “algo más”</p>
+<p>⚠️ Decidir rápido si hay gente esperando</p>
 
-    <div class="cta">
-      <h3>CONSULTAR POR EL BOLSÓN SORPRESA XL</h3>
-      <p>Ideal para quienes confían, valoran la discreción y entienden cómo funciona un comercio serio.</p>
-      <div class="btn-row">
-        <a href="#" class="btn">Ver precios mayoristas secretos</a>
-        <a href="#" class="btn">Hablar con el encargado general</a>
-      </div>
-    </div>
+</div>
 
-    <div class="footer">
-      © 2026 Verduras y Algo Más (No Preguntar) · Sitio barrial de confianza razonable y explicaciones limitadas.
-    </div>
-  </div>
+<div class="box">
+<h2>TESTIMONIOS</h2>
+
+<p>“Muy buena la papa. No pregunté nada.”</p>
+<p>“Fui, compré y me fui. Todo correcto.”</p>
+<p>“Hay cosas que no se explican, se entienden.”</p>
+
+</div>
+
+<div class="cta">
+CONSULTAR POR BOLSÓN SORPRESA
+<br><br>
+<button onclick="alert('Mejor acercarse personalmente.')">Ver precios mayoristas</button>
+<button onclick="alert('Consultar en el local.')">Hablar con el encargado</button>
+</div>
+
+<div style="margin:20px; font-size:14px;">
+© 2026 Verduras y Algo Más (No Preguntar) – Morón
+</div>
+
 </body>
 </html>
