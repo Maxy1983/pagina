@@ -4,28 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
   <title>Verduras y Algo Más (No Preguntar) – Morón</title>
-
   <meta name="description" content="Verdulería de barrio en Morón con frutas y verduras frescas. Atención directa, precios razonables y algunas cosas que preferimos no detallar. No preguntar.">
-
-  <meta name="keywords" content="fly moron, verduleria moron, verduras moron, frutas moron">
-
+  <meta name="keywords" content="fly moron, verduleria moron, verduras moron, frutas moron, berenjena">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://flymoron.com.ar/">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Verduras y Algo Más (No Preguntar)">
   <meta property="og:description" content="Frutas, verduras y algunas cosas que preferimos no detallar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://flymoron.com.ar/">
 
+  <!-- Favicon berenjena -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>%F0%9F%8D%86</text></svg>">
+
   <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", Arial;
-      background: #fff9c4;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #fff8b0,
+        #fff8b0 25px,
+        #fff37a 25px,
+        #fff37a 50px
+      );
       text-align: center;
+      color: #222;
     }
 
     .topbar {
@@ -34,6 +39,9 @@
       font-weight: bold;
       padding: 10px;
       animation: blink 1s infinite;
+      border-bottom: 4px solid black;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     @keyframes blink {
@@ -41,114 +49,270 @@
     }
 
     h1 {
-      font-size: 60px;
+      font-size: 64px;
       color: green;
-      text-shadow: 4px 4px yellow;
+      text-shadow: 4px 4px yellow, 7px 7px black;
+      margin: 30px 10px 10px;
+      line-height: 0.95;
     }
 
     h2 {
       font-size: 30px;
       color: darkred;
+      margin-top: 0;
+      text-shadow: 2px 2px #fff;
     }
 
     .box {
       background: white;
       border: 5px dashed green;
-      margin: 20px;
+      margin: 20px auto;
       padding: 20px;
+      max-width: 900px;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .box h3 {
+      font-size: 30px;
+      margin-top: 0;
+      color: #b30000;
+      text-transform: uppercase;
+    }
+
+    .box p,
+    .box li {
+      font-size: 22px;
+      line-height: 1.5;
     }
 
     .oferta {
       background: yellow;
       border: 3px solid red;
-      margin: 10px;
-      padding: 10px;
+      margin: 10px auto;
+      padding: 12px;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 24px;
+      max-width: 520px;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
     }
 
     .cta {
       background: red;
       color: white;
-      padding: 20px;
-      margin: 20px;
-      font-size: 25px;
+      padding: 24px;
+      margin: 20px auto;
+      font-size: 30px;
       border: 4px solid black;
+      max-width: 900px;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .sub {
+      font-size: 20px;
+      margin-top: 8px;
     }
 
     button {
       font-size: 20px;
-      padding: 10px 20px;
+      padding: 12px 22px;
       margin: 10px;
       background: yellow;
       border: 3px solid black;
       cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      margin: 25px 15px 40px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    /* Modal */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal {
+      background: #fff;
+      border: 5px solid #000;
+      max-width: 600px;
+      width: 100%;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.25);
+    }
+
+    .modal h3 {
+      margin-top: 0;
+      font-size: 34px;
+      color: #b30000;
+      text-transform: uppercase;
+    }
+
+    .modal p {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    .loader {
+      width: 70px;
+      height: 70px;
+      border: 8px solid #ddd;
+      border-top: 8px solid green;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .box p,
+      .box li,
+      .modal p,
+      .oferta,
+      button {
+        font-size: 18px;
+      }
+
+      .box h3,
+      .modal h3 {
+        font-size: 24px;
+      }
+
+      .cta {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<div class="topbar">
-🥕 OFERTA IMPERDIBLE – NO FIAMOS – NO PREGUNTAR 🥬
-</div>
+  <div class="topbar">
+    🥕 oferta imperdible · no fiamos · no preguntar · atención rápida 🥬
+  </div>
 
-<h1>VERDURAS Y ALGO MÁS</h1>
-<h2>(NO PREGUNTAR)</h2>
+  <h1>VERDURAS Y ALGO MÁS</h1>
+  <h2>(NO PREGUNTAR)</h2>
 
-<div class="box">
-<p>
-Verdulería de barrio en Morón.<br>
-Frutas y verduras frescas todos los días.<br>
-Atención directa, sin vueltas y sin preguntas innecesarias.
-</p>
+  <div class="box">
+    <h3>Bienvenidos</h3>
+    <p>
+      Verdulería de barrio en Morón.<br>
+      Frutas y verduras frescas todos los días.<br>
+      Atención directa, precios razonables y explicaciones limitadas.
+    </p>
+    <p>
+      Tomate, papa, banana…<br>
+      y algo más.<br>
+      No preguntar.
+    </p>
+  </div>
 
-<p>
-Tomate, papa, banana…<br>
-y algo más.<br>
-No preguntar.
-</p>
-</div>
+  <div class="box">
+    <h3>Ofertas del día 🔥</h3>
+    <div class="oferta">Papa $890/kg</div>
+    <div class="oferta">Tomate $1250/kg</div>
+    <div class="oferta">Banana $1600/kg</div>
+    <div class="oferta">Palta: consultar en voz baja</div>
+    <div class="oferta">Berenjena: depende del humor del encargado</div>
+    <div class="oferta">Bolsón sorpresa: sujeto a disponibilidad emocional</div>
+  </div>
 
-<div class="box">
-<h2>OFERTAS DEL DÍA 🔥</h2>
+  <div class="box">
+    <h3>Información importante</h3>
+    <p>⚠️ No fiamos</p>
+    <p>⚠️ No insistir</p>
+    <p>⚠️ No preguntar por “algo más”</p>
+    <p>⚠️ Si hay gente esperando, decidir rápido</p>
+    <p>⚠️ Algunas consultas requieren hablar con el encargado general</p>
+  </div>
 
-<div class="oferta">Papa $890/kg</div>
-<div class="oferta">Tomate $1250/kg</div>
-<div class="oferta">Banana $1600/kg</div>
-<div class="oferta">Palta: consultar en voz baja</div>
+  <div class="box">
+    <h3>Testimonios</h3>
+    <p>“Muy buena la papa. Ambiente reservado.”</p>
+    <p>“Fui, compré, no pregunté nada. Excelente atención.”</p>
+    <p>“La mercadería impecable. Las respuestas, escasas.”</p>
+  </div>
 
-</div>
+  <div class="cta">
+    CONSULTAR POR BOLSÓN SORPRESA
+    <div class="sub">Ideal para quienes entienden cómo funciona un comercio serio.</div>
+    <br>
+    <button onclick="verPreciosMayoristas()">
+      Ver precios mayoristas
+    </button>
+    <button onclick="hablarConEncargado()">
+      Hablar con el encargado
+    </button>
+  </div>
 
-<div class="box">
-<h2>INFORMACIÓN IMPORTANTE</h2>
+  <div class="footer">
+    © 2026 Verduras y Algo Más (No Preguntar) – Morón 🍆
+  </div>
 
-<p>⚠️ No fiamos</p>
-<p>⚠️ No insistir</p>
-<p>⚠️ No preguntar por “algo más”</p>
-<p>⚠️ Decidir rápido si hay gente esperando</p>
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <h3>Un momento por favor</h3>
+      <p>Estamos verificando la disponibilidad del encargado…</p>
+      <div class="loader"></div>
+      <p id="mensajeRedireccion">Preparando consulta...</p>
+    </div>
+  </div>
 
-</div>
+  <script>
+    function hablarConEncargado() {
+      const overlay = document.getElementById("overlay");
+      const mensaje = document.getElementById("mensajeRedireccion");
 
-<div class="box">
-<h2>TESTIMONIOS</h2>
+      overlay.style.display = "flex";
+      mensaje.textContent = "Preparando consulta...";
 
-<p>“Muy buena la papa. No pregunté nada.”</p>
-<p>“Fui, compré y me fui. Todo correcto.”</p>
-<p>“Hay cosas que no se explican, se entienden.”</p>
+      setTimeout(() => {
+        mensaje.textContent = "Verificando disponibilidad del encargado...";
+      }, 1200);
 
-</div>
+      setTimeout(() => {
+        mensaje.textContent = "El encargado no está disponible en este momento.";
+      }, 2500);
 
-<div class="cta">
-CONSULTAR POR BOLSÓN SORPRESA
-<br><br>
-<button onclick="alert('Mejor acercarse personalmente.')">Ver precios mayoristas</button>
-<button onclick="alert('Consultar en el local.')">Hablar con el encargado</button>
-</div>
+      setTimeout(() => {
+        mensaje.textContent = "Intente nuevamente más tarde. O no.";
+      }, 3800);
 
-<div style="margin:20px; font-size:14px;">
-© 2026 Verduras y Algo Más (No Preguntar) – Morón
-</div>
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 5600);
+    }
+
+    function verPreciosMayoristas() {
+      alert("Los precios mayoristas se informan únicamente de manera presencial.");
+    }
+  </script>
 
 </body>
 </html>
