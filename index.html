@@ -6,7 +6,6 @@
 
   <title>Verduras y Algo Más (No Preguntar) – Morón</title>
   <meta name="description" content="Verdulería de barrio en Morón con frutas y verduras frescas. Atención directa, precios razonables y algunas cosas que preferimos no detallar. No preguntar.">
-  <meta name="keywords" content="fly moron, verduleria moron, verduras moron, frutas moron, berenjena">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://flymoron.com.ar/">
 
@@ -15,7 +14,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://flymoron.com.ar/">
 
-  <!-- Favicon berenjena -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>%F0%9F%8D%86</text></svg>">
 
   <style>
@@ -42,10 +40,37 @@
       border-bottom: 4px solid black;
       text-transform: uppercase;
       letter-spacing: 1px;
+      font-size: 15px;
     }
 
     @keyframes blink {
       50% { opacity: 0.5; }
+    }
+
+    .retro-strip {
+      background: #000;
+      color: #00ff66;
+      padding: 8px 12px;
+      font-weight: bold;
+      border-bottom: 4px solid #ffeb3b;
+      font-size: 14px;
+    }
+
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 14s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
     }
 
     h1 {
@@ -61,6 +86,22 @@
       color: darkred;
       margin-top: 0;
       text-shadow: 2px 2px #fff;
+    }
+
+    .mini-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 15px 20px;
+    }
+
+    .badge {
+      background: #ffeb3b;
+      border: 3px solid #000;
+      padding: 8px 14px;
+      font-weight: bold;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
     }
 
     .box {
@@ -96,6 +137,38 @@
       box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
     }
 
+    .oferta-random-box {
+      background: #ff004c;
+      color: #fff;
+      border: 5px solid #000;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 900px;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
+      animation: pulse 1.2s infinite;
+      transition: all 0.3s ease;
+    }
+
+    .oferta-random-box h3 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0 #000;
+      color: #ffeb3b;
+    }
+
+    .oferta-random-texto {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.45;
+      min-height: 80px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.01); }
+    }
+
     .cta {
       background: red;
       color: white;
@@ -128,13 +201,24 @@
       transform: translateY(-2px);
     }
 
+    .visit-counter {
+      margin: 20px auto;
+      max-width: 500px;
+      background: #000;
+      color: #00ff66;
+      border: 4px solid #ffeb3b;
+      padding: 14px;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+    }
+
     .footer {
       margin: 25px 15px 40px;
       font-size: 15px;
       font-weight: bold;
     }
 
-    /* Modal */
     .overlay {
       display: none;
       position: fixed;
@@ -195,17 +279,23 @@
       .box li,
       .modal p,
       .oferta,
+      .oferta-random-texto,
       button {
         font-size: 18px;
       }
 
       .box h3,
-      .modal h3 {
+      .modal h3,
+      .oferta-random-box h3 {
         font-size: 24px;
       }
 
       .cta {
         font-size: 24px;
+      }
+
+      .visit-counter {
+        font-size: 18px;
       }
     }
   </style>
@@ -213,11 +303,33 @@
 <body>
 
   <div class="topbar">
-    🥕 oferta imperdible · no fiamos · no preguntar · atención rápida 🥬
+    🥕 oferta imperdible · no fiamos · no preguntar · atención rápida · calidad dudosa pero simpática 🥬
+  </div>
+
+  <div class="retro-strip marquee">
+    <span>★ VERDURAS Y ALGO MÁS ★ OFERTAS DEL DÍA ★ DESDE 1998 ★ ATENCIÓN CON RESPUESTAS LIMITADAS ★</span>
   </div>
 
   <h1>VERDURAS Y ALGO MÁS</h1>
   <h2>(NO PREGUNTAR)</h2>
+
+  <div class="mini-badges">
+    <div class="badge">🍆 Desde 1998</div>
+    <div class="badge">🥔 No fiamos</div>
+    <div class="badge">🍌 Calidad variable</div>
+    <div class="badge">🥬 Atención directa</div>
+  </div>
+
+  <div class="visit-counter" id="contadorVisitas">
+    VISITANTE N° 000000
+  </div>
+
+  <div class="oferta-random-box">
+    <h3>Oferta random del momento</h3>
+    <div class="oferta-random-texto" id="ofertaRandomTexto">
+      Cargando oferta irrepetible...
+    </div>
+  </div>
 
   <div class="box">
     <h3>Bienvenidos</h3>
@@ -285,6 +397,52 @@
   </div>
 
   <script>
+    const ofertasRandom = [
+      'Limones más ácidos que el grupo de WhatsApp de las mamis. $XXX el kilo.',
+      'Llevate estas cebollas para llorar por algo que valga la pena y no por tu ex. $XXX el kilo.',
+      'Peras maduras: como vos, pero estas sí están buenas. $XXX el kilo.',
+      'Bananas con más potasio que ganas de trabajar un lunes. $XXX el kilo.',
+      'Ajos frescos: ideales para mantener lejos a los vampiros y a los vecinos pesados. $XXX la unidad.',
+      'Zapallos tan grandes que si los hacés puré, alimentás a todo el barrio. $XXX el kilo.',
+      'Naranjas dulces: la media naranja que te falta y no te va a engañar. $XXX el kilo.',
+      'Papas más sucias que tu conciencia, pero con un buen lavado quedan joya. $XXX el kilo.',
+      'Sandías tan pesadas como el cuñado que se queda a dormir. $XXX el kilo.',
+      'Acelgas bien verdes, como el dólar pero legales. $XXX el paquete.',
+      'Uvas sin semilla: para que no andes escupiendo como un carancho. $XXX el kilo.',
+      'Morrones rojos: tan caros que te los damos con seguro de vida. $XXX la unidad.',
+      'Manzanas más tentadoras que el aguinaldo recién cobrado. $XXX el kilo.',
+      'Pepinos: para ensalada o para las ojeras de tanto salir de joda. $XXX el kilo.',
+      'Batatas dulces: más tiernas que video de gatitos. $XXX el kilo.',
+      'Zanahorias: para que veas mejor la realidad, aunque duela. $XXX el kilo.',
+      'Kiwis peludos: tan feos por fuera, tan lindos por dentro. Como tu mejor amigo. $XXX el kilo.',
+      'Choclos con más dientes que un comercial de pasta dental. $XXX la unidad.',
+      'Berenjenas: no sabemos qué hacés con ellas, pero están de oferta. $XXX el kilo.',
+      'Paltas: oro verde. Se miran y se pagan, no se tocan. $XXX la unidad.'
+    ];
+
+    function precioRandom() {
+      const precios = [390, 450, 520, 590, 650, 750, 890, 990, 1100, 1250, 1390, 1600, 1850, 2100, 2450];
+      return precios[Math.floor(Math.random() * precios.length)];
+    }
+
+    function mostrarOfertaRandom() {
+      const oferta = ofertasRandom[Math.floor(Math.random() * ofertasRandom.length)];
+      const textoFinal = oferta.replace('XXX', precioRandom());
+      document.getElementById('ofertaRandomTexto').textContent = textoFinal;
+    }
+
+    function iniciarOfertasRotativas() {
+      mostrarOfertaRandom();
+      setInterval(() => {
+        mostrarOfertaRandom();
+      }, 5000);
+    }
+
+    function mostrarContadorFalso() {
+      const numero = Math.floor(Math.random() * 900000) + 100000;
+      document.getElementById('contadorVisitas').textContent = 'VISITANTE N° ' + numero.toString().padStart(6, '0');
+    }
+
     function hablarConEncargado() {
       const overlay = document.getElementById("overlay");
       const mensaje = document.getElementById("mensajeRedireccion");
@@ -310,8 +468,19 @@
     }
 
     function verPreciosMayoristas() {
-      alert("Los precios mayoristas se informan únicamente de manera presencial.");
+      const mensajes = [
+        "Los precios mayoristas se informan únicamente de manera presencial.",
+        "Para precios mayoristas, acercarse con actitud correcta.",
+        "El listado mayorista no está disponible para cualquiera.",
+        "Consultar en el local, preferentemente sin hacer muchas preguntas."
+      ];
+
+      const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
+      alert(mensaje);
     }
+
+    mostrarContadorFalso();
+    iniciarOfertasRotativas();
   </script>
 
 </body>
