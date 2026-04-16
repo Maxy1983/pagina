@@ -1,523 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Verduras y Algo Más (No Preguntar) – Morón</title>
-  <meta name="description" content="Verdulería de barrio en Morón con frutas y verduras frescas. Atención directa, precios razonables y algunas cosas que preferimos no detallar. No preguntar." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://flymoron.com.ar/" />
+<title>Verduras y Algo Más (No Preguntar) – Morón</title>
 
-  <meta property="og:title" content="Verduras y Algo Más (No Preguntar)" />
-  <meta property="og:description" content="Frutas, verduras y algunas cosas que preferimos no detallar." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://flymoron.com.ar/" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>%F0%9F%8D%86</text></svg>">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>%F0%9F%8D%86</text></svg>">
+<style>
+body {
+  margin:0;
+  font-family:"Comic Sans MS", Arial;
+  background: repeating-linear-gradient(45deg,#fff8b0,#fff8b0 25px,#fff37a 25px,#fff37a 50px);
+  text-align:center;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Comic Sans MS", Arial, sans-serif;
-      background: repeating-linear-gradient(
-        45deg,
-        #fff8b0,
-        #fff8b0 25px,
-        #fff37a 25px,
-        #fff37a 50px
-      );
-      text-align: center;
-      color: #222;
-    }
+.topbar{
+  background:red;color:white;padding:10px;font-weight:bold;
+  animation:blink 1s infinite;
+}
 
-    .topbar {
-      background: red;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      animation: blink 1s infinite;
-      border-bottom: 4px solid black;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 15px;
-    }
+@keyframes blink{50%{opacity:0.5;}}
 
-    @keyframes blink {
-      50% { opacity: 0.5; }
-    }
+h1{
+  font-size:60px;color:green;
+  text-shadow:4px 4px yellow,7px 7px black;
+}
 
-    .retro-strip {
-      background: #000;
-      color: #00ff66;
-      padding: 8px 12px;
-      font-weight: bold;
-      border-bottom: 4px solid #ffeb3b;
-      font-size: 14px;
-    }
+h2{color:darkred;}
 
-    .marquee {
-      white-space: nowrap;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
+.visit{
+  background:black;color:#00ff66;
+  padding:10px;margin:15px;
+  font-size:22px;font-weight:bold;
+}
 
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 14s linear infinite;
-    }
+.random{
+  background:#ff004c;color:white;
+  margin:20px;padding:20px;
+  border:5px solid black;
+  font-size:24px;font-weight:bold;
+}
 
-    @keyframes marquee {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
-    }
+.box{
+  background:white;margin:20px;padding:20px;
+  border:5px dashed green;
+}
 
-    h1 {
-      font-size: 64px;
-      color: green;
-      text-shadow: 4px 4px yellow, 7px 7px black;
-      margin: 30px 10px 10px;
-      line-height: 0.95;
-    }
+button{
+  padding:10px 20px;font-size:18px;
+  background:yellow;border:3px solid black;
+}
 
-    h2 {
-      font-size: 30px;
-      color: darkred;
-      margin-top: 0;
-      text-shadow: 2px 2px #fff;
-    }
+/* FAJA CLAUSURA */
+.faja{
+  position:fixed;
+  top:50%;
+  left:-50%;
+  width:200%;
+  background: repeating-linear-gradient(45deg, red, red 20px, white 20px, white 40px);
+  font-size:28px;
+  font-weight:bold;
+  transform:rotate(-20deg);
+  padding:15px;
+  display:none;
+  z-index:9999;
+}
 
-    .mini-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 10px 15px 20px;
-    }
-
-    .badge {
-      background: #ffeb3b;
-      border: 3px solid #000;
-      padding: 8px 14px;
-      font-weight: bold;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
-    }
-
-    .box {
-      background: white;
-      border: 5px dashed green;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 900px;
-      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
-    }
-
-    .box h3 {
-      font-size: 30px;
-      margin-top: 0;
-      color: #b30000;
-      text-transform: uppercase;
-    }
-
-    .box p,
-    .box li {
-      font-size: 22px;
-      line-height: 1.5;
-    }
-
-    .oferta {
-      background: yellow;
-      border: 3px solid red;
-      margin: 10px auto;
-      padding: 12px;
-      font-weight: bold;
-      font-size: 24px;
-      max-width: 520px;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
-    }
-
-    .oferta-random-box {
-      background: #ff004c;
-      color: #fff;
-      border: 5px solid #000;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 900px;
-      box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
-      animation: pulse 1.2s infinite;
-      transition: all 0.3s ease;
-    }
-
-    .oferta-random-box h3 {
-      margin: 0 0 12px;
-      font-size: 32px;
-      text-transform: uppercase;
-      text-shadow: 2px 2px 0 #000;
-      color: #ffeb3b;
-    }
-
-    .oferta-random-texto {
-      font-size: 26px;
-      font-weight: bold;
-      line-height: 1.45;
-      min-height: 80px;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.01); }
-    }
-
-    .cta {
-      background: red;
-      color: white;
-      padding: 24px;
-      margin: 20px auto;
-      font-size: 30px;
-      border: 4px solid black;
-      max-width: 900px;
-      box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
-    }
-
-    .sub {
-      font-size: 20px;
-      margin-top: 8px;
-    }
-
-    button {
-      font-size: 20px;
-      padding: 12px 22px;
-      margin: 10px;
-      background: yellow;
-      border: 3px solid black;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: bold;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-    }
-
-    .visit-counter {
-      margin: 20px auto;
-      max-width: 500px;
-      background: #000;
-      color: #00ff66;
-      border: 4px solid #ffeb3b;
-      padding: 14px;
-      font-size: 24px;
-      font-weight: bold;
-      box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
-    }
-
-    .footer {
-      margin: 25px 15px 40px;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal {
-      background: #fff;
-      border: 5px solid #000;
-      max-width: 600px;
-      width: 100%;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 10px 10px 0 rgba(0,0,0,0.25);
-    }
-
-    .modal h3 {
-      margin-top: 0;
-      font-size: 34px;
-      color: #b30000;
-      text-transform: uppercase;
-    }
-
-    .modal p {
-      font-size: 22px;
-      line-height: 1.5;
-    }
-
-    .loader {
-      width: 70px;
-      height: 70px;
-      border: 8px solid #ddd;
-      border-top: 8px solid green;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      .box p,
-      .box li,
-      .modal p,
-      .oferta,
-      .oferta-random-texto,
-      button {
-        font-size: 18px;
-      }
-
-      .box h3,
-      .modal h3,
-      .oferta-random-box h3 {
-        font-size: 24px;
-      }
-
-      .cta {
-        font-size: 24px;
-      }
-
-      .visit-counter {
-        font-size: 18px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <div class="topbar">
-    🥕 oferta imperdible · no fiamos · no preguntar · atención rápida · calidad dudosa pero simpática 🥬
-  </div>
+<div class="faja" id="faja">🚫 CLAUSURADO 🚫 SIN HABILITACIÓN 🚫 NO INSISTIR 🚫</div>
 
-  <div class="retro-strip marquee">
-    <span>★ VERDURAS Y ALGO MÁS ★ OFERTAS DEL DÍA ★ DESDE 1998 ★ ATENCIÓN CON RESPUESTAS LIMITADAS ★</span>
-  </div>
+<div class="topbar">🥕 OFERTAS · NO FIAMOS · NO PREGUNTAR 🥬</div>
 
-  <h1>VERDURAS Y ALGO MÁS</h1>
-  <h2>(NO PREGUNTAR)</h2>
+<h1>VERDURAS Y ALGO MÁS</h1>
+<h2>(NO PREGUNTAR)</h2>
 
-  <div class="mini-badges">
-    <div class="badge">🍆 Desde 1998</div>
-    <div class="badge">🥔 No fiamos</div>
-    <div class="badge">🍌 Calidad variable</div>
-    <div class="badge">🥬 Atención directa</div>
-  </div>
+<div class="visit" id="contador">VISITANTE N° 000000</div>
 
-  <div class="visit-counter" id="contadorVisitas">
-    VISITANTE N° 000000
-  </div>
+<div class="random" id="oferta">Cargando oferta...</div>
 
-  <div class="oferta-random-box">
-    <h3>Oferta random del momento</h3>
-    <div class="oferta-random-texto" id="ofertaRandomTexto">
-      Cargando oferta irrepetible...
-    </div>
-  </div>
+<div class="box">
+<p>Verdulería de barrio. Comprás, te vas y listo.</p>
+<p>Tomate, papa, banana… y algo más.</p>
+<p>No preguntar.</p>
+</div>
 
-  <div class="box">
-    <h3>Bienvenidos</h3>
-    <p>
-      Verdulería de barrio en Morón.<br>
-      Frutas y verduras frescas todos los días.<br>
-      Atención directa, precios razonables y explicaciones limitadas.
-    </p>
-    <p>
-      Tomate, papa, banana…<br>
-      y algo más.<br>
-      No preguntar.
-    </p>
-  </div>
+<div class="box">
+<h3>Información importante</h3>
+<p>⚠️ No fiamos</p>
+<p>⚠️ No insistir</p>
+<p>⚠️ No preguntar por “algo más”</p>
+<p>⚠️ Si hay gente esperando, decidir rápido</p>
+<p>⚠️ Algunas consultas requieren hablar con el encargado general</p>
+<p>⚠️ Habilitación municipal en trámite permanente</p>
+<p>⚠️ Temas relacionados con ANMAT: preferimos no entrar en detalles</p>
+<p>⚠️ Facturación: estamos en una etapa de aprendizaje emocional</p>
+</div>
 
-  <div class="box">
-    <h3>Ofertas del día 🔥</h3>
-    <div class="oferta">Papa $890/kg</div>
-    <div class="oferta">Tomate $1250/kg</div>
-    <div class="oferta">Banana $1600/kg</div>
-    <div class="oferta">Palta: consultar en voz baja</div>
-    <div class="oferta">Berenjena: depende del humor del encargado</div>
-    <div class="oferta">Bolsón sorpresa: sujeto a disponibilidad emocional</div>
-  </div>
+<button onclick="encargado()">Hablar con el encargado</button>
 
-  <div class="box">
-    <h3>Información importante</h3>
-    <p>⚠️ No fiamos</p>
-    <p>⚠️ No insistir</p>
-    <p>⚠️ No preguntar por “algo más”</p>
-    <p>⚠️ Si hay gente esperando, decidir rápido</p>
-    <p>⚠️ Algunas consultas requieren hablar con el encargado general</p>
-    <p>⚠️ No tenemos habilitación municipal (no decir nada)</p>
-    <p>⚠️ No tenemos habilitación de ANMAT (tampoco decir nada)</p>
-    <p>⚠️ No hacemos facturas (no sabemos hacerlas)</p>
-  </div>
+<script>
 
-  <div class="box">
-    <h3>Testimonios</h3>
-    <p>“Muy buena la papa. Ambiente reservado.”</p>
-    <p>“Fui, compré, no pregunté nada. Excelente atención.”</p>
-    <p>“La mercadería impecable. Las respuestas, escasas.”</p>
-    <p>“Compre la promo de paltas 10x11. Cuando abri la bolsa, eran 6.”</p>
-  </div>
+/* OFERTAS */
+const ofertas = [
+"Limones más ácidos que el grupo de WhatsApp de las mamis. $XXX el kilo.",
+"Bananas con más potasio que ganas de trabajar. $XXX el kilo.",
+"Papas más sucias que tu conciencia. $XXX el kilo.",
+"Sandía más pesada que el cuñado. $XXX el kilo.",
+"Manzanas tentadoras como aguinaldo. $XXX el kilo.",
+"Pepinos multiuso. $XXX el kilo.",
+"Zanahorias para ver la realidad. $XXX el kilo.",
+"Berenjenas… no preguntes. $XXX el kilo.",
+"Paltas: se miran, no se tocan. $XXX la unidad.",
+"Tomates más rojos que discusión familiar. $XXX el kilo.",
+"Lechuga que cruje más que rodilla. $XXX la unidad.",
+"Frutillas lindas pero inestables. $XXX el kilo.",
+"Duraznos suaves como excusas. $XXX el kilo.",
+"Melón que entra solo. $XXX el kilo.",
+"Choclos con más dientes que sonrisa falsa. $XXX la unidad.",
+"Mandarinas fáciles de pelar. $XXX el kilo.",
+"Apio saludable por dos horas. $XXX el atado.",
+"Rabanitos sin filtro. $XXX el atado.",
+"Zapallitos dóciles. $XXX el kilo.",
+"Batatas que te replantean la vida. $XXX el kilo."
+];
 
-  <div class="cta">
-    CONSULTAR POR BOLSÓN SORPRESA
-    <div class="sub">Ideal para quienes entienden cómo funciona un comercio serio.</div>
-    <br>
-    <button onclick="verPreciosMayoristas()">
-      Ver precios mayoristas
-    </button>
-    <button onclick="hablarConEncargado()">
-      Hablar con el encargado
-    </button>
-  </div>
+/* PRECIO RANDOM */
+function precio(){
+  let p=[390,520,650,890,1100,1250,1600,1850,2100];
+  return p[Math.floor(Math.random()*p.length)];
+}
 
-  <div class="footer">
-    © 2026 Verduras y Algo Más (No Preguntar) – Morón 🍆
-  </div>
+/* OFERTA */
+function nuevaOferta(){
+  let o=ofertas[Math.floor(Math.random()*ofertas.length)];
+  document.getElementById("oferta").innerText = o.replace("XXX",precio());
+}
 
-  <div class="overlay" id="overlay">
-    <div class="modal">
-      <h3>Un momento por favor</h3>
-      <p>Estamos verificando la disponibilidad del encargado…</p>
-      <div class="loader"></div>
-      <p id="mensajeRedireccion">Preparando consulta...</p>
-    </div>
-  </div>
+/* CONTADOR */
+function contador(){
+  let n=Math.floor(Math.random()*900000)+100000;
+  document.getElementById("contador").innerText="VISITANTE N° "+n;
+}
 
-  <script>
-    const ofertasRandom = [
-      'Limones más ácidos que el grupo de WhatsApp de las mamis. $XXX el kilo.',
-      'Llevate estas cebollas para llorar por algo que valga la pena y no por tu ex. $XXX el kilo.',
-      'Peras maduras: como vos, pero estas sí están buenas. $XXX el kilo.',
-      'Bananas con más potasio que ganas de trabajar un lunes. $XXX el kilo.',
-      'Ajos frescos: ideales para mantener lejos a los vampiros y a los vecinos pesados. $XXX la unidad.',
-      'Zapallos tan grandes que si los hacés puré, alimentás a todo el barrio. $XXX el kilo.',
-      'Naranjas dulces: la media naranja que te falta y no te va a engañar. $XXX el kilo.',
-      'Papas más sucias que tu conciencia, pero con un buen lavado quedan joya. $XXX el kilo.',
-      'Sandías tan pesadas como el cuñado que se queda a dormir. $XXX el kilo.',
-      'Acelgas bien verdes, como el dólar pero legales. $XXX el paquete.',
-      'Uvas sin semilla: para que no andes escupiendo como un carancho. $XXX el kilo.',
-      'Morrones rojos: tan caros que te los damos con seguro de vida. $XXX la unidad.',
-      'Manzanas más tentadoras que el aguinaldo recién cobrado. $XXX el kilo.',
-      'Pepinos: para ensalada o para las ojeras de tanto salir de joda. $XXX el kilo.',
-      'Batatas dulces: más tiernas que video de gatitos. $XXX el kilo.',
-      'Zanahorias: para que veas mejor la realidad, aunque duela. $XXX el kilo.',
-      'Kiwis peludos: tan feos por fuera, tan lindos por dentro. Como tu mejor amigo. $XXX el kilo.',
-      'Choclos con más dientes que un comercial de pasta dental. $XXX la unidad.',
-      'Berenjenas: no sabemos qué hacés con ellas, pero están de oferta. $XXX el kilo.',
-      'Paltas: oro verde. Se miran y se pagan, no se tocan. $XXX la unidad.',
+/* FAJA */
+function faja(){
+  let ahora=new Date();
+  let inicio=new Date("2026-04-16T00:00:00");
+  let fin=new Date("2026-04-16T22:00:00");
+  if(ahora>=inicio && ahora<=fin){
+    document.getElementById("faja").style.display="block";
+  }
+}
 
-      'Mandarinas fáciles de pelar, más que algunas personas de tu entorno. $XXX el kilo.',
-      'Tomates tan rojos que parecen discusión familiar en Navidad. $XXX el kilo.',
-      'Lechugas frescas: crujen más que rodilla bajando de la cama. $XXX la unidad.',
-      'Remolachas intensas, como audio de 4 minutos a las 2 de la mañana. $XXX el kilo.',
-      'Rúcula con más carácter que tu tía opinando de tu vida. $XXX el paquete.',
-      'Apio fresco: ideal para jugos detox o para sentirte saludable dos horas. $XXX el atado.',
-      'Radicheta amarga, como la realidad después del finde. $XXX el paquete.',
-      'Puerros elegantes: parecen finos, pero terminan en la olla igual. $XXX el kilo.',
-      'Pepinos frescos: más fríos que saludo de ex en supermercado. $XXX el kilo.',
-      'Melones dulces: entran mejor que excusa para no ir a trabajar. $XXX el kilo.',
-      'Frutillas lindas, pero duran menos que propósito de arrancar el gym. $XXX el kilo.',
-      'Duraznos suaves: más delicados que orgullo después de mandar ese mensaje. $XXX el kilo.',
-      'Ciruelas listas para todo, menos para esperar. $XXX el kilo.',
-      'Ananá tropical: te corta la lengua pero no la emoción. $XXX la unidad.',
-      'Pomelos con más personalidad que muchos perfiles de app de citas. $XXX el kilo.',
-      'Coliflor noble: fea de vista, rendidora de corazón. $XXX la unidad.',
-      'Brócoli verde intenso: para comer sano y quejarte menos. $XXX el kilo.',
-      'Repollo firme: más duro de abrir que charla incómoda con suegros. $XXX la unidad.',
-      'Chauchas frescas, más largas que la espera del aguinaldo. $XXX el kilo.',
-      'Arvejas simpáticas: chiquitas pero cumplidoras, como amigo con auto. $XXX el kilo.',
-      'Boniatos honestos: dulces sin prometerte el cielo. $XXX el kilo.',
-      'Jengibre picante: como comentario pasivo-agresivo en reunión familiar. $XXX la unidad.',
-      'Perejil fresco: el toque final para caretearla un poco en la cocina. $XXX el atado.',
-      'Cilantro: amado por algunos, discutido por muchos, ignorado por otros. $XXX el atado.',
-      'Albahaca perfumada: más rica que plan que sale bien sin organizar nada. $XXX el atado.',
-      'Huevos de campo... no, mentira, eso no vendemos. Pero casi. $XXX la docena imaginaria.',
-      'Batatas gigantes: una sola y comés hasta que te replanteás decisiones. $XXX el kilo.',
-      'Cebollita de verdeo: finita, delicada y con más presencia de la que parece. $XXX el atado.',
-      'Zapallitos tiernos: más dóciles que vos diciendo “bueno, vemos”. $XXX el kilo.',
-      'Rabanitos picantes: chicos, intensos y con menos filtro que comentario en grupo. $XXX el atado.'
-    ];
+/* BOTON */
+function encargado(){
+  alert("El encargado no está disponible.");
+}
 
-    function precioRandom() {
-      const precios = [390, 450, 520, 590, 650, 750, 890, 990, 1100, 1250, 1390, 1600, 1850, 2100, 2450];
-      return precios[Math.floor(Math.random() * precios.length)];
-    }
+contador();
+nuevaOferta();
+setInterval(nuevaOferta,5000);
+faja();
 
-    function mostrarOfertaRandom() {
-      const oferta = ofertasRandom[Math.floor(Math.random() * ofertasRandom.length)];
-      const textoFinal = oferta.replace('XXX', precioRandom());
-      document.getElementById('ofertaRandomTexto').textContent = textoFinal;
-    }
-
-    function iniciarOfertasRotativas() {
-      mostrarOfertaRandom();
-      setInterval(() => {
-        mostrarOfertaRandom();
-      }, 5000);
-    }
-
-    function mostrarContadorFalso() {
-      const numero = Math.floor(Math.random() * 900000) + 100000;
-      document.getElementById('contadorVisitas').textContent =
-        'VISITANTE N° ' + numero.toString().padStart(6, '0');
-    }
-
-    function hablarConEncargado() {
-      const overlay = document.getElementById("overlay");
-      const mensaje = document.getElementById("mensajeRedireccion");
-
-      overlay.style.display = "flex";
-      mensaje.textContent = "Preparando consulta...";
-
-      setTimeout(() => {
-        mensaje.textContent = "Verificando disponibilidad del encargado...";
-      }, 1200);
-
-      setTimeout(() => {
-        mensaje.textContent = "El encargado no está disponible en este momento.";
-      }, 2500);
-
-      setTimeout(() => {
-        mensaje.textContent = "Intente nuevamente más tarde. O no.";
-      }, 3800);
-
-      setTimeout(() => {
-        overlay.style.display = "none";
-      }, 5600);
-    }
-
-    function verPreciosMayoristas() {
-      const mensajes = [
-        "Los precios mayoristas se informan únicamente de manera presencial.",
-        "Para precios mayoristas, acercarse con actitud correcta.",
-        "El listado mayorista no está disponible para cualquiera.",
-        "Consultar en el local, preferentemente sin hacer muchas preguntas."
-      ];
-
-      const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
-      alert(mensaje);
-    }
-
-    mostrarContadorFalso();
-    iniciarOfertasRotativas();
-  </script>
+</script>
 
 </body>
 </html>
