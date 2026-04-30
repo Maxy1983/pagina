@@ -244,7 +244,7 @@ button{
   color:#e8f5e9;
 }
 
-/* MODAL ENCARGADO */
+/* MODAL */
 
 .modal-bg{
   position:fixed;
@@ -271,12 +271,6 @@ button{
 .modal-icon{
   font-size:46px;
   margin-bottom:12px;
-}
-
-.modal-box h3{
-  margin:0 0 14px;
-  color:var(--green);
-  font-size:28px;
 }
 
 #textoModal{
@@ -360,10 +354,6 @@ footer{
     font-size:22px;
   }
 
-  #textoModal{
-    font-size:19px;
-  }
-
 }
 
 </style>
@@ -373,31 +363,31 @@ footer{
 
 <section class="hero">
 
-  <div class="hero-inner">
+<div class="hero-inner">
 
-    <div class="badge-top">
-      Verdulería de barrio · Morón
-    </div>
+<div class="badge-top">
+Verdulería de barrio · Morón
+</div>
 
-    <h1>Verduras y Algo Más</h1>
+<h1>Verduras y Algo Más</h1>
 
-    <h2>
-      No preguntar. Solo elegir, pagar y seguir con tu vida.
-    </h2>
+<h2>
+No preguntar. Solo elegir, pagar y seguir con tu vida.
+</h2>
 
-    <div class="hero-buttons">
+<div class="hero-buttons">
 
-      <button class="primary" onclick="nuevaOferta()">
-        Ver oferta random
-      </button>
+<button class="primary" onclick="nuevaOferta()">
+Ver oferta random
+</button>
 
-      <button class="secondary" onclick="encargado()">
-        Hablar con el encargado
-      </button>
+<button class="secondary" onclick="encargado()">
+Hablar con el encargado
+</button>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -448,7 +438,7 @@ También tenemos “algo más”, pero preferimos no desarrollar ese punto por e
 
 <div class="item">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg" alt="Papas">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg">
 
 <div class="item-content">
 
@@ -464,7 +454,7 @@ Noble, rendidora y con pasado.
 
 <div class="item">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Banana">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg">
 
 <div class="item-content">
 
@@ -480,7 +470,7 @@ Maduración variable. Como la gente.
 
 <div class="item">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg" alt="Palta">
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg">
 
 <div class="item-content">
 
@@ -496,7 +486,7 @@ Se mira, se paga, no se toca.
 
 <div class="item">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" alt="Tomate">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg">
 
 <div class="item-content">
 
@@ -512,7 +502,7 @@ Rojo, intenso y medio dramático.
 
 <div class="item">
 
-<img src="https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=900&q=80" alt="Lechuga">
+<img src="https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=900&q=80">
 
 <div class="item-content">
 
@@ -528,7 +518,7 @@ Ideal para ensaladas y culpas.
 
 <div class="item">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Aubergine.jpg" alt="Berenjena">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Aubergine.jpg">
 
 <div class="item-content">
 
@@ -682,27 +672,25 @@ Ver precios mayoristas
 © 2026 Verduras y Algo Más – Morón 🍆
 </footer>
 
-<!-- MODAL ENCARGADO -->
+<!-- MODAL -->
 
 <div id="modalEncargado" class="modal-bg">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <div class="modal-icon">🥬</div>
+<div class="modal-icon">🥬</div>
 
-    <h3>Solicitud al encargado</h3>
+<div class="loader" id="loaderModal"></div>
 
-    <div class="loader" id="loaderModal"></div>
+<div id="textoModal">
+Cargando...
+</div>
 
-    <div id="textoModal">
-      Cargando solicitud...
-    </div>
+<button class="primary" onclick="cerrarModal()">
+Entendido
+</button>
 
-    <button class="primary" onclick="cerrarModal()">
-      Entendido
-    </button>
-
-  </div>
+</div>
 
 </div>
 
@@ -725,11 +713,7 @@ const ofertas = [
 "Manzanas más tentadoras que el aguinaldo recién cobrado. $XXX el kilo.",
 "Pepinos: para ensalada o para las ojeras de tanto salir de joda. $XXX el kilo.",
 "Batatas dulces: más tiernas que video de gatitos. $XXX el kilo.",
-"Zanahorias: para que veas mejor la realidad, aunque duela. $XXX el kilo.",
-"Kiwis peludos: tan feos por fuera, tan lindos por dentro. Como tu mejor amigo. $XXX el kilo.",
-"Choclos con más dientes que un comercial de pasta dental. $XXX la unidad.",
-"Berenjenas: no sabemos qué hacés con ellas, pero están de oferta. $XXX el kilo.",
-"Paltas: oro verde. Se miran y se pagan, no se tocan. $XXX la unidad."
+"Zanahorias: para que veas mejor la realidad, aunque duela. $XXX el kilo."
 
 ];
 
@@ -757,6 +741,8 @@ document.getElementById("contador").innerText="VISITANTE N° "+n;
 
 }
 
+/* ENCARGADO */
+
 function encargado(){
 
 const mensajes=[
@@ -779,36 +765,61 @@ const texto = document.getElementById("textoModal");
 const loader = document.getElementById("loaderModal");
 
 modal.style.display = "flex";
+
 texto.innerHTML = "Cargando solicitud...";
 loader.style.display = "block";
 
 setTimeout(() => {
 
 loader.style.display = "none";
+
 texto.innerHTML = mensajes[Math.floor(Math.random()*mensajes.length)];
 
 }, 1800);
 
 }
 
-function cerrarModal(){
-
-document.getElementById("modalEncargado").style.display = "none";
-
-}
+/* MAYORISTA */
 
 function preciosMayoristas(){
 
 const mensajes=[
 
-"Los precios mayoristas se informan únicamente de manera presencial.",
-"Para mayoristas, acercarse con actitud correcta.",
-"El listado mayorista no está disponible para cualquiera.",
-"Consultar en el local, preferentemente sin hacer muchas preguntas."
+"Los precios mayoristas se informan únicamente después de una mirada seria.",
+"Para acceder a precios mayoristas necesitás mínimo cara de almacenero.",
+"El listado mayorista está siendo plastificado.",
+"El encargado mayorista salió a comprar cambio.",
+"Tu solicitud fue enviada al departamento de cajones sospechosos.",
+"Los precios mayoristas dependen del humor general del mercado y del encargado.",
+"Para ver precios mayoristas tenés que demostrar compromiso con la berenjena.",
+"El sistema detectó demasiada curiosidad para habilitar precios mayoristas.",
+"Los precios mayoristas se desbloquean después de comprar 14 kilos de papa.",
+"El sector mayorista está temporalmente tomado por una discusión sobre melones."
 
 ];
 
-alert(mensajes[Math.floor(Math.random()*mensajes.length)]);
+const modal = document.getElementById("modalEncargado");
+const texto = document.getElementById("textoModal");
+const loader = document.getElementById("loaderModal");
+
+modal.style.display = "flex";
+
+texto.innerHTML = "Consultando precios mayoristas...";
+loader.style.display = "block";
+
+setTimeout(() => {
+
+loader.style.display = "none";
+
+texto.innerHTML = mensajes[Math.floor(Math.random()*mensajes.length)];
+
+}, 1900);
+
+}
+
+function cerrarModal(){
+
+document.getElementById("modalEncargado").style.display = "none";
 
 }
 
