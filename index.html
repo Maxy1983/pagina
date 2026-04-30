@@ -244,6 +244,76 @@ button{
   color:#e8f5e9;
 }
 
+/* MODAL ENCARGADO */
+
+.modal-bg{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:20px;
+}
+
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:520px;
+  border-radius:26px;
+  padding:34px;
+  text-align:center;
+  box-shadow:0 22px 65px rgba(0,0,0,.28);
+  animation:aparecer .25s ease;
+}
+
+.modal-icon{
+  font-size:46px;
+  margin-bottom:12px;
+}
+
+.modal-box h3{
+  margin:0 0 14px;
+  color:var(--green);
+  font-size:28px;
+}
+
+#textoModal{
+  font-size:22px;
+  line-height:1.45;
+  margin:0 0 24px;
+  color:#1f2933;
+}
+
+.loader{
+  width:46px;
+  height:46px;
+  border:5px solid #e5e7eb;
+  border-top:5px solid var(--green);
+  border-radius:50%;
+  animation:girar .9s linear infinite;
+  margin:18px auto 22px;
+  display:none;
+}
+
+@keyframes girar{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes aparecer{
+  from{
+    transform:scale(.92);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
 /* FOOTER */
 
 footer{
@@ -288,6 +358,10 @@ footer{
 
   #oferta{
     font-size:22px;
+  }
+
+  #textoModal{
+    font-size:19px;
   }
 
 }
@@ -608,6 +682,30 @@ Ver precios mayoristas
 © 2026 Verduras y Algo Más – Morón 🍆
 </footer>
 
+<!-- MODAL ENCARGADO -->
+
+<div id="modalEncargado" class="modal-bg">
+
+  <div class="modal-box">
+
+    <div class="modal-icon">🥬</div>
+
+    <h3>Solicitud al encargado</h3>
+
+    <div class="loader" id="loaderModal"></div>
+
+    <div id="textoModal">
+      Cargando solicitud...
+    </div>
+
+    <button class="primary" onclick="cerrarModal()">
+      Entendido
+    </button>
+
+  </div>
+
+</div>
+
 <script>
 
 const ofertas = [
@@ -663,14 +761,39 @@ function encargado(){
 
 const mensajes=[
 
-"El encargado no está disponible.",
-"El encargado vio la consulta y decidió seguir acomodando cajones.",
-"El encargado está en reunión con una berenjena.",
-"Consulta derivada. Nadie sabe a dónde."
+"El encargado está acomodando papas por orden emocional.",
+"El encargado salió a buscar una palta madura y todavía no volvió.",
+"Tu consulta fue derivada al sector berenjenas sensibles.",
+"El encargado está en una reunión estratégica con una cebolla.",
+"En este momento el encargado está evitando responsabilidades.",
+"El encargado pidió no ser molestado hasta nuevo aviso.",
+"Tu consulta es importante para nosotros, lamentablemente no para el encargado.",
+"El encargado está recalculando decisiones de vida.",
+"El encargado se fue a tomar aire después de una discusión por un melón.",
+"El encargado detectó demasiadas preguntas en la consulta."
 
 ];
 
-alert(mensajes[Math.floor(Math.random()*mensajes.length)]);
+const modal = document.getElementById("modalEncargado");
+const texto = document.getElementById("textoModal");
+const loader = document.getElementById("loaderModal");
+
+modal.style.display = "flex";
+texto.innerHTML = "Cargando solicitud...";
+loader.style.display = "block";
+
+setTimeout(() => {
+
+loader.style.display = "none";
+texto.innerHTML = mensajes[Math.floor(Math.random()*mensajes.length)];
+
+}, 1800);
+
+}
+
+function cerrarModal(){
+
+document.getElementById("modalEncargado").style.display = "none";
 
 }
 
